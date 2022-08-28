@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    @font-face {
+      font-family: Epilogue;
+      src: url(./fonts/Epilogue/static/Epilogue-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: Epilogue extrabold;
+      src: url(./fonts/Epilogue/static/Epilogue-ExtraBold.ttf);
+    }
+
+    body {
+      font-family: Epilogue;
+      background-color: hsl(0, 0%, 98%);
+    }
+
+    nav {
+      width: 100%;
+      height: auto;
+      display: inline;
+      position: relative;
+    }
+
+    nav .top {
+      padding-top: 10px;
+      padding-bottom: 30px;
+    }
+
+    .name {
+      font-size: 37px;
+      position: relative;
+      top: 3px;
+      font-family: Epilogue extrabold;
+    }
+
+    .lio {
+      width: 100px;
+      display: inline;
+      margin-left: 17px;
+      list-style-type: none;
+    }
+
+    nav ul li .a {
+      text-decoration: none;
+      list-style-type: none;
+    }
+
+    .a:not(.do) {
+      color: hsl(0, 0%, 41%);
+      margin-left: 12px;
+      font-size: 15px;
+    }
+
+    .a:not(.do):hover {
+      color: black;
+      transition-duration: .5s;
+    }
+
+    .do {
+      color: black;
+    }
+
+    .name {
+      font-size: 45px;
+    }
+
+    .menu {
+      margin-left: 120px;
+      width: 100%;
+    }
+
+    .menu li a {
+      color: hsl(0, 0%, 41%);
+    }
+
+    .menu_2,
+    .menu_3,
+    .menu_4 {
+      margin-left: 10px;
+    }
+    .hamburger{
+      display: none;
+    }
+
+    .landg {
+      display: inline;
+      font-size: 18px;
+      margin-left: 40%;
+    }
+
+    .landg_2 {
+      border: 2px;
+      padding: 7px;
+      border-style: groove;
+      border-radius: 10px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .sub1 {
+      width: 500px;
+      display: block;
+      justify-content: space-around;
+      margin-top: 70px;
+      margin-left: 100px;
+    }
+
+    .sub1_1 {
+      font-family: Epilogue extrabold;
+      font-size: 60px;
+      margin-top: 35px;
+      font-weight: 5000;
+      width: 400px;
+    }
+
+    #suba_1 {
+      display: none;
+      justify-content: space-between;
+      position: absolute;
+      margin-left: 130px;
+      margin-top: 5px;
+      width: 100px;
+      padding: 15px;
+      box-shadow: 0 0 12px black;
+      border-radius: 10px;
+    }
+
+    #suba_1 li {
+      list-style-type: none;
+    }
+
+    #suba_1 li a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .sub1_1_1 li a {
+      font-size: 13px;
+    }
+
+    #suba_2 {
+      animation: both;
+      display: none;
+      justify-content: space-between;
+      position: absolute;
+      overflow: visible;
+      margin-left: 280px;
+      margin-top: 5px;
+      width: 80px;
+      height: 70px;
+      padding: 15px;
+      box-shadow: 0 0 12px black;
+      border-radius: 10px;
+    }
+
+    #suba_2 li {
+      list-style-type: none;
+    }
+
+    #suba_2 li a {
+      font-size: 13px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .sub1_2 {
+      font-size: 16px;
+      margin-bottom: 60px;
+      width: 400px;
+      color: hsl(0, 0%, 41%);
+      font-weight: 200;
+    }
+
+    .sub1_button {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: hsl(0, 0%, 98%);
+      background-color: black;
+      padding: 15px;
+      padding-left: 18px;
+      padding-right: 18px;
+      border-radius: 10px;
+    }
+
+    .sub1_button:hover {
+      transition-delay: .1s;
+      transition-duration: .3s;
+      background-color: white;
+      color: black;
+      border-color: black;
+      border-style: groove;
+      border-width: 1px;
+    }
+
+    .icons {
+      margin-top: 50px;
+      margin-left: -50px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .icons img {
+      height: 20px;
+    }
+
+    .coverimg {
+      content: url(./images/image-hero-desktop.png);
+      width: 400px;
+      height: 500px;
+      margin-top: 5px;
+      margin-left: -50px;
+      padding-bottom: 25px;
+    }
+
+    /*media queries*/
+    @media only screen and (max-width:500px) {
+      .menu {
+        display: none;
+      }
+
+      .container {
+        display: grid;
+      }
+
+      .sub1 {
+        order: 2;
+      }
+      .kid{
+        position: absolute;
+        margin-top: 50px;
+        color: white; 
+        left: 250px;
+      }
+
+      .kid li{
+        display: block;
+        margin-top: 20px;
+        left: 250px;
+        height: 100%;
+      }
+      .hamburger{
+        display: inline;
+        float: right;
+        position: relative;
+        top: 20px;
+        left: 24px;
+      }
+      .hamburger2{
+        transition-duration: 2s;
+        content: url(./images/icon-close-menu.svg);
+        display: inline;
+        float: right;
+        position: relative;
+        top: 20px;
+        left: 24px;
+      }
+      .coverimg{
+        content: url(./images/image-hero-mobile.png);
+        width: 100%;
+        height: 395px;
+      }
+      .sub1_1{
+        margin-top: -65px;
+        width: 500px;
+        font-size: 45px;
+        padding: 15px;
+      }
+      .sub1_2{
+        width: 55 0px;
+        text-align: center;
+        margin-left: 30px;
+        margin-top: -20px;
+        font-size: 20px;
+      }
+      .sub1_button{
+        text-align: center;
+        position: relative;
+        left: 130px;
+        top: -10px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .icons{
+        margin-bottom: 30px;
+        display:inline;
+        position: relative;
+        top: 100px;
+        left: -100px;
+      }
+      .attribution{
+        position: relative;
+        top: 170px;
+        text-align: center;
+        margin-left: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul class="top">
+      <li class="lio name"><a class="a do" href="">snap</a></li>&nbsp;
+     <a href="#" class="hmlink" id="hlink"><img src="./images/icon-menu.svg" class="hamburger" id="burger" alt="" srcset=""></a>
+    <span class="kid" id="others">
+      <li id="hi" class="lio">
+        <a href="#" class="a menu_1" id="features">Features &nbsp;
+          <img src="./images/icon-arrow-up.svg" alt="drop-down-menu" srcset="" id="dropd">
+          <ul class="sub1_1_1" id="suba_1">
+            <li><img src="./images/icon-todo.svg" alt="">&nbsp;<a href="">Todo list</a></li>
+            <li><img src="./images/icon-calendar.svg" alt="">&nbsp;<a href="">Calendar</a></li>
+            <li><img src="./images/icon-reminders.svg" alt="">&nbsp;<a href="">Reminders</a></li>
+            <li><img src="./images/icon-planning.svg" alt="">&nbsp;<a href="">Planning</a></li>
+          </ul>
+      </li>
+
+      <li class="lio"><a href="#" class="a menu_2" id="company">Company &nbsp;
+          <img src="./images/icon-arrow-up.svg" alt="drop-down-menu" srcset="" id="dropd2"></a>
+      </li>
+      <ul class="sub1_1_2" id="suba_2">
+        <li><a href="">History</a></li>
+        <li><a href="">Our Team</a></li>
+        <li><a href="">Blog</a></li>
+      </ul>
+      <li class="lio"><a href="" class="a menu_3">Careers</a></li>
+      <li class="lio"><a href="" class="a menu_4">About</a></li>
+      <li class="landg">
+      <li class="lio"><a href="" class="a landg_1">Login</a></li>
+      <li class="lio"><a href="" class="a landg_2">Register</a></li>
+    </span>
+    </ul>
+  </nav>
+  <div class="container">
+    <div class="sub1">
+      <h1 class="sub1_1">Make remote work</h1>
+      <h3 class="sub1_2"> Get your team in sync, no matter your location. Streamline processes,
+        create team rituals, and watch productivity soar.
+      </h3>
+      <a href="" class="sub1_button">Learn more</a>
+      &nbsp;
+      <div class="icons">
+        <img src="./images/client-databiz.svg" alt="" srcset="" class="databiz">
+        <img src="./images/client-audiophile.svg" alt="" srcset="" class="audiophile">
+        <img src="./images/client-meet.svg" alt="" srcset="" class="meet">
+        <img src="./images/client-maker.svg" alt="" srcset="" class="maker">
+      </div>
+    </div>
+    <div class="sub2">
+      <img alt="" class="coverimg">
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Egemonye Jeremiah</a>.
+  </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
